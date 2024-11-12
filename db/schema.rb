@@ -10,9 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_12_233327) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_12_234041) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cases", force: :cascade do |t|
+    t.string "case_"
+    t.string "injury_type"
+    t.string "claimant_insurance"
+    t.string "policy_"
+    t.string "attorney_assigned"
+    t.integer "case_status"
+    t.date "date_of_incident"
+    t.date "date_of_retention"
+    t.string "medical_providers"
+    t.text "notes"
+    t.bigint "client_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_cases_on_client_id"
+  end
 
   create_table "clients", force: :cascade do |t|
     t.string "first_name"
@@ -34,4 +51,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_11_12_233327) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "cases", "clients"
 end

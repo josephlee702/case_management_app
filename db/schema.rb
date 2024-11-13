@@ -10,15 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_11_12_234041) do
+ActiveRecord::Schema[7.1].define(version: 2024_11_12_235137) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cases", force: :cascade do |t|
-    t.string "case_"
+    t.string "case_number"
     t.string "injury_type"
     t.string "claimant_insurance"
-    t.string "policy_"
+    t.string "policy_number"
     t.string "attorney_assigned"
     t.integer "case_status"
     t.date "date_of_incident"

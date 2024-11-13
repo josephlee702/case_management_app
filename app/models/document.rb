@@ -1,4 +1,4 @@
 class Document < ApplicationRecord
   belongs_to :case
-  enum status: { Open: 0, Closed: 1, other: 2 }
+  enum status: { "Drafted": 0, "Needs Signature": 1, "Signed": 2, "Submitted": 3 }
 end
